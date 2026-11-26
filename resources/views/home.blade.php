@@ -7,11 +7,11 @@
 </head>
 <body>
 <div style="border: 3px solid black;">
-    <h2>Register</h2>
+    <h2>Register name(3 - 16 character) password (8 - 20) characters</h2>
     <form action="/register" method="POST">
-        <input type="text" placeholder="name">
-        <input type="text" placeholder="email">
-        <input type="password" placeholder="password">
+        <input name="name" type="text" placeholder="name">
+        <input name="email" type="text" placeholder="email">
+        <input name="password" type="password" placeholder="password">
         <button>Register</button>
     </form>
 </div>
