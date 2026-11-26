@@ -6,3 +6,6 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::post('/register', function() {
+    return 'meow';
+});
