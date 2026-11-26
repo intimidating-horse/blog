@@ -5,19 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
-    public function register(Request $request){
-        $incomingFields = $request -> validate([
-            'name' => ['required', 'min:3', 'max:16'],
-            'email' => ['required', 'email', 'unique:users'],
+    public function register(Request $request)
+    {
+        $incomingFields = $request->validate([
+            'name' => ['required', 'min:3', 'max:16', Rule::unique('users', 'name')],
+            'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => ['required', 'min:8', 'max:20'],
         ]);
 
-        $incomingFields['password'] = bcrypt($incomingFields['password']);
-        User::create($incomingFields);
+        $user = User::create([
+            'name' => $incomingFields['name'],
+            'email' => $incomingFields['email'],
+            'password' => Hash::make($incomingFields['password']),
+        ]);
 
-        return "hello from controller";
+        auth()->login($user);
+
+        return redirect('/');
     }
 }
