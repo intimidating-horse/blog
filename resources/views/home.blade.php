@@ -10,6 +10,10 @@
 @auth
 
     <p> you are logged in </p>
+<form action="/logout" method="POST">
+@csrf
+<button>  log out  </button>
+</form>
 
 @else
 
