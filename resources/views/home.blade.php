@@ -99,6 +99,7 @@
                         <div class="side">
                             <span class="price">€{{ number_format((float) $listing->starting_price, 2) }}</span>
                             <span class="price-caption">Starting bid</span>
+                            <span class="price-caption">{{ $listing->ends_at?->isFuture() ? 'Ends in ' . now()->diffForHumans($listing->ends_at, ['parts' => 2, 'short' => true, 'syntax' => \Carbon\CarbonInterface::DIFF_ABSOLUTE]) : 'Auction ended' }}</span>
                         </div>
                     </article>
                 @empty
