@@ -50,7 +50,14 @@
             </select>
             <button>save listing</button>
         </form>
-    </div>
+<div style="border: 3px solid black;">
+<h2>All listings</h2>
+    @foreach($listings as $listing)
+        <div style="background-color: gray; padding: 10px; margin: 10px;">
+            <h3>{{$listing['title']}}</h3>
+            {{$listing['body']}}
+        @endforeach
+        </div>
 @else
 
     <div style="border: 3px solid black;">
