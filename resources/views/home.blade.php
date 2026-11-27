@@ -50,13 +50,16 @@
             </select>
             <button>save listing</button>
         </form>
-<div style="border: 3px solid black;">
-<h2>All listings</h2>
+    </div>
+
+    <div style="border: 3px solid black; padding: 1rem; margin-top: 1rem;">
+        <h2>All listings</h2>
     @foreach($listings as $listing)
-        <div style="background-color: gray; padding: 10px; margin: 10px;">
-            <h3>{{$listing['title']}}</h3>
-            {{$listing['body']}}
-        @endforeach
+        <article style="background-color: #eee; padding: 10px; margin: 10px 0;">
+            <h3>{{ $listing->title }}</h3>
+            <p>{{ $listing->description }}</p>
+        </article>
+    @endforeach
         </div>
 @else
 
