@@ -70,6 +70,14 @@
                     <label class="field">Starting price (€)
                         <input type="number" name="starting_price" placeholder="0.00" value="{{ old('starting_price') }}" min="0" step="0.01" required>
                     </label>
+                    <label class="field">Auction duration
+                        <select name="duration_days" required>
+                            <option value="" disabled @selected(old('duration_days') === null)>Select duration</option>
+                            @foreach ([1, 3, 5, 7, 10, 14, 30] as $days)
+                                <option value="{{ $days }}" @selected((string) old('duration_days') === (string) $days)>{{ $days }} {{ Str::plural('day', $days) }}</option>
+                            @endforeach
+                        </select>
+                    </label>
                     <div class="field field-action"><span>&nbsp;</span><button class="btn" type="submit">List this item</button></div>
                 </form>
             </section>

@@ -19,5 +19,13 @@ class Listing extends Model
         'current_price',
         'condition',
         'user_id',
+        'ends_at',
     ];
+
+    protected function casts(): array
+    {
+        return [
+            'ends_at' => 'datetime',
+        ];
+    }
 }

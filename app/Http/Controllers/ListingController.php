@@ -18,6 +18,7 @@ class ListingController extends Controller
                 Rule::in(['electronics', 'clothing', 'books', 'other']),
             ],
             'starting_price' => ['required', 'numeric', 'min:0', 'decimal:0,2'],
+            'duration_days' => ['required', 'integer', 'min:1', 'max:30'],
             'condition' => [
                 'required',
                 Rule::in(['new', 'like_new', 'good', 'acceptable', 'worn_out']),
@@ -27,6 +28,8 @@ class ListingController extends Controller
         $incomingFields['description'] = strip_tags($incomingFields['description']);
         $incomingFields['current_price'] = $incomingFields['starting_price'];
         $incomingFields['user_id'] = auth()->id();
+        $incomingFields['ends_at'] = now()->addDays((int) $incomingFields['duration_days']);
+        unset($incomingFields['duration_days']);
         Listing::create($incomingFields);
         return redirect('/');
     }
