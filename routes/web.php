@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
 
 Route::get('/', function () {
-    $listings = Listing::all();
+    $listings = Listing::with('user')->get();
     return view('home', ['listings' => $listings]);
 });
 
