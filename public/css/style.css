@@ -52,6 +52,12 @@ h1, h2 { font-size: 21px; }
 .price { font-size: 20px; font-weight: bold; white-space: nowrap; }
 .empty { padding: 25px; border: 1px solid var(--border); background: #fff; text-align: center; }
 .empty p { margin: 0; color: var(--muted); }
+.back-link { margin: 0 0 14px; }
+.listing-detail { display: grid; grid-template-columns: 180px minmax(0, 1fr) auto; gap: 24px; align-items: start; padding: 24px; border: 1px solid var(--border); background: #fff; }
+.detail-thumb { display: grid; width: 180px; height: 180px; place-items: center; border: 1px solid var(--border); background: #f1eff5; color: var(--purple); font-size: 54px; font-weight: bold; }
+.detail-content h1 { margin: 4px 0 12px; }
+.detail-description { margin: 0 0 16px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.detail-price { display: flex; min-width: 145px; flex-direction: column; align-items: flex-end; }
 
 .auth-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 850px; margin: 10px auto; }
 .auth-form { display: grid; gap: 12px; margin-top: 18px; }
@@ -63,6 +69,9 @@ h1, h2 { font-size: 21px; }
     .listing-form { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .field-wide { grid-column: span 2; }
     .auth-grid { grid-template-columns: 1fr; }
+    .listing-detail { grid-template-columns: 120px minmax(0, 1fr); gap: 14px; padding: 16px; }
+    .detail-thumb { width: 120px; height: 120px; }
+    .detail-price { grid-column: 2; align-items: flex-start; }
 }
 @media (max-width: 500px) {
     .wrap { width: calc(100% - 20px); }
@@ -71,6 +80,9 @@ h1, h2 { font-size: 21px; }
     .listing-form { grid-template-columns: 1fr; }
     .field-wide { grid-column: auto; }
     .sell-panel, .auth-panel { padding: 14px; }
+    .listing-detail { grid-template-columns: 1fr; }
+    .detail-thumb { width: 100%; height: 160px; }
+    .detail-price { grid-column: auto; flex-direction: row; align-items: baseline; gap: 10px; }
     .item { flex-wrap: wrap; gap: 10px; }
     .info { flex-basis: calc(100% - 95px); }
     .side { width: 100%; min-width: 0; flex-direction: row; justify-content: space-between; padding-left: 90px; }

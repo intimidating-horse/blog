@@ -91,7 +91,7 @@
                     <article class="item">
                         <div class="thumb" aria-hidden="true">{{ strtoupper(substr($listing->title, 0, 1)) }}</div>
                         <div class="info">
-                            <h3 class="title">{{ $listing->title }}</h3>
+                            <h3 class="title"><a href="{{ route('listings.show', $listing) }}">{{ $listing->title }}</a></h3>
                             <p class="description">{{ $listing->description }}</p>
                             <p class="meta-line">{{ ucfirst($listing->category) }} <span aria-hidden="true">·</span> {{ ucfirst(str_replace('_', ' ', $listing->condition)) }}</p>
                             <p class="seller">Listed by <strong>{{ $listing->user?->name ?? 'Unknown seller' }}</strong></p>
